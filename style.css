@@ -1,0 +1,46 @@
+.navbar{
+    display: inline-flex;
+    text-align: center;
+    justify-content: baseline;
+
+}
+
+
+
+body{
+    background-color: 9ED0E6;
+    display: inline-flex;
+    border-top: 1px;
+
+}
+
+section{
+    display: inline-flex;
+
+}
+
+.navbar-brand{
+    display: inline-flexbox;
+    margin: auto;
+}
+
+#moviePoster{
+    margin: 100px;
+}
+
+#movieTitles{
+    margin: 100px;
+}
+
+.movie-details{
+    margin: 100px;
+}
+
+#moreDetails{
+    margin: 100;
+}
+
+p{
+    font-size: larger;
+    font-weight: 800;
+}
