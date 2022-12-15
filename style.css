@@ -1,46 +1,32 @@
-.navbar{
-    display: inline-flex;
-    text-align: center;
-    justify-content: baseline;
-
-}
-
-
-
 body{
-    background-color: 9ED0E6;
-    display: inline-flex;
-    border-top: 1px;
-
+    background-color: aliceblue;
+    display: block;
 }
-
-section{
-    display: inline-flex;
-
+h2{
+    text-align: center;
 }
-
-.navbar-brand{
-    display: inline-flexbox;
-    margin: auto;
+.navbar{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background: aqua;
+    font-weight: bold;
 }
-
-#moviePoster{
-    margin: 100px;
+.movie-poster{
+    padding-left: 1rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
 }
-
-#movieTitles{
-    margin: 100px;
+.tickets{
+    margin-left: 3rem;
 }
-
 .movie-details{
-    margin: 100px;
+    margin: auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
-
-#moreDetails{
-    margin: 100;
-}
-
 p{
-    font-size: larger;
-    font-weight: 800;
+    font-weight: bold;
+    font-display: block;
 }

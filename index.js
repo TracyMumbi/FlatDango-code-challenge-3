@@ -7,27 +7,32 @@ fetch("http://localhost:3000/films")
   const firstFilm = data.find((object) => object.id == 1)
   //console.log(firstFilm);
   
-  const posterDiv = document.getElementById("moviePoster")
-  let imageElement = document.createElement("img")
+  const moviePoster = document.getElementById("moviePoster")
+  let posterImage = document.createElement("img")
 
-  imageElement.src = firstFilm.poster;
-  imageElement.alt = "Poster image"
-  imageElement.width = "300"
-  imageElement.height ="450";
-  posterDiv.appendChild(imageElement)
+  posterImage.src = firstFilm.poster;
+  posterImage.alt = "Poster image"
+  posterImage.width = "300"
+  posterImage.height ="450";
+  moviePoster.appendChild(posterImage)
 
   //display title of first film
-  const titleAndRunTime = document.createElement("titleAndRunTime")
-  let ParaTitle = document.createElement("p")
-  let paraRuntime = document.createElement("p")
+  const firstMovieTitle = document.createElement("p")
+  const firstMovieRuntime = document.createElement("p")
+  firstMovieTitle.innerText = firstFilm.title
+  firstMovieRuntime.innerText = firstFilm.runtime
 
-  ParaTitle.innerText = firstFilm.titleAndRunTime
-  paraRuntime.innerText = `${firstFilm.runtime} minutes`
-  titleAndRunTime.appendChild(paraRuntime)
-  titleAndRunTime.appendChild(ParaTitle)
+
+  let movieTitle = document.createElement("p")
+  let movieRunTime = document.createElement("p")
+
+  movieTitle.innerText = firstFilm.title
+  movieRunTime.innerText = `${firstFilm.runtime} minutes`
+  // titleAndRunTime.appendChild(movieTitle)
+  // titleAndRunTime.appendChild(movieRunTime)
 
   const moreDetails = document.getElementById("moreDetails")
-  let paraDescription = document.createElement("p")
+  let paradescription = document.createElement("p")
   let showtimebtn = document.createElement("button")
 
   let remTickets = firstFilm.capacity - firstFilm.tickets_sold
@@ -38,7 +43,7 @@ fetch("http://localhost:3000/films")
 
 
   showtimebtn.innerText = firstFilm.showtime
-  paraDescription.innerText = firstFilm.paraDescription
+  paradescription.innerText = firstFilm.description
   spanElement.innerText = `${remTickets} remaining tickets`
   ticketBtn.innerText = "Buy Ticket"
 
@@ -47,10 +52,12 @@ fetch("http://localhost:3000/films")
 
 
   moreDetails.appendChild(showtimebtn)
-  moreDetails.appendChild(paraDescription)
+  moreDetails.appendChild(paradescription)
   moreDetails.appendChild(ticketBtn)
   moreDetails.appendChild(spanElement)
   moreDetails.appendChild(breakElement)
+  moreDetails.appendChild(firstMovieTitle)
+  moreDetails.appendChild(firstMovieRuntime)
 
   ticketBtn.addEventListener("click", () =>{
   // alert("I am Clicked")
@@ -67,22 +74,23 @@ fetch("http://localhost:3000/films")
 });
 
 
-function getFilms() {
-  fetch("http://localhost:3000/films")
-  .then (resp => resp.json())
-  .then (renderFilms)
-}
-
-getFilms()
-
-function renderFilms(films) {
-  films.forEach(filmDetails);
-}
-
-function filmDetails(details) {
+function getFilms(){
+  fetch ('http://localhost:3000/films')
+  .then((response => response.json()))
+  .then((renderFilms))
+  }
+  getFilms()
+  function renderFilms(films) {
+  films.forEach(filmDetails)
+  }
+  function filmDetails(details){
   const titlesElement = document.getElementById("titles")
+  let listElement = document.createElement("li")
+  listElement.innerText = details.title;
+  titlesElement.appendChild(listElement)
+  }
 
-  let listElements = document.createElement("li")
-  listElements.innerText = details.titleAndRunTime
-  titlesElement.appendChild(listElements)
-}
+
+
+
+
